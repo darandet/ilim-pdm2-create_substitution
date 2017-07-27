@@ -1,0 +1,94 @@
+{
+  "_version": "1.1.0",
+  "sap.app": {
+    "_version": "1.1.0",
+    "id": "ilim.pdm.subst",
+    "type": "application",
+    "i18n": "i18n/messageBundle.properties",
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "applicationVersion": {
+      "version": "1.0.0"
+    },
+    "ach": "CA-UI5-DOC"
+  },
+  "sap.ui": {
+    "_version": "1.1.0",
+    "technology": "UI5",
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": ["sap_bluecrystal", "custom_ilim"]
+  },
+  "sap.ui5": {
+    "_version": "1.1.0",
+    "rootView": { 
+      "viewName": "ilim.pdm.subst.view.Main",
+      "type": "JS"   
+      },
+    "dependencies": {
+      "minUI5Version": "1.30",
+      "libs": {
+        "sap.m": {}
+      }
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "ilim.pdm.subst.i18n.messageBundle"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+      {
+        "uri": "css/style.css"
+      }
+      ]
+    },
+    "contentDensities": {
+      "compact": false,
+      "cozy": false
+    },
+    "config": {
+      "modelFull": "proxy/http/fioridev.ipe.com.ru:8000/sap/opu/odata/sap/ZHR_PDM_SUBST_SRV",
+      "model":     "/sap/opu/odata/sap/ZHR_PDM_SUBST_SRV"  
+    },
+
+
+"routing": {
+				"config": {
+					"routerClass": "sap.m.routing.Router",
+					"viewPath": "ilim.pdm.subst.view",
+					"controlId": "rootControlId",
+					"controlAggregation": "pages",
+					"viewType": "JS"
+				},
+				"routes": [
+					{
+						"name": "main",
+						"pattern": "",
+						"target": "main"
+					},
+					{
+						"name": "history",
+						"pattern": "history",
+						"target": "history"
+					}
+				],
+				"targets": {
+					"main": {
+						"viewName": "Main",
+						"viewLevel": "0"
+					},
+					"history": {
+						"viewName": "History",
+						"viewLevel": "1"
+					}
+				}
+			} }   
+    
+}
